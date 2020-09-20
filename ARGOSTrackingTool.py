@@ -24,19 +24,23 @@ line_list = file_object.readlines()
 #Closing the file 
 file_object.close()
 
-#wont work for lines 2 and 3 cause they are not data items
-lineString = line_list[2]
+#Iterate through all lines in the line list
+for lineString in line_list:
+    if lineString[0] == "#" or lineString[0] == 'u': 
+        continue
+    
 
-#split the string into a list of data items
-lineData = lineString.split()
 
-#Extract Items in list into variables
-record_id = lineData[0]
-obs_date = lineData[2]
-obs_lc = lineData[4]
-obs_lat = lineData[6]
-obs_lon = lineData[7]
-
-#Print the location of sara
-print(f"Record {record_id} Indicates Sara was seen at lat:{obs_lat}, lon:{obs_lon} on {obs_date}")
+    #split the string into a list of data items
+    lineData = lineString.split()
+    
+    #Extract Items in list into variables
+    record_id = lineData[0]
+    obs_date = lineData[2]
+    obs_lc = lineData[4]
+    obs_lat = lineData[6]
+    obs_lon = lineData[7]
+    
+    #Print the location of sara
+    print(f"Record {record_id} Indicates Sara was seen at lat:{obs_lat}, lon:{obs_lon} on {obs_date}")
 
