@@ -8,12 +8,24 @@
 # Author: Kimberly Corcoran (kimberly.corcoran@duke.edu)
 # Date:   Fall 2020
 #--------------------------------------------------------------
+#Create a variable pointing to the data file
+file_name = './data/raw/sara.txt'
+#By making this a variable it makes it a parameter
+#making the model more dynamic
 
-#pretend we read one Line of data from the file 
-lineString = '20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0'
-#now we want to pull out specific files from the string and build a date dictionary and location dictionary. Each one will have the UID as its key
-#So we are going to pull out all the coordinates, uid and date - so focus on a string method that allows us to take out specific values
-#We are going to treat this as a delimited file and split 
+
+#Create a file object from the file
+file_object = open(file_name, 'r')
+
+
+#Reading contents of the datafile into a list so we can iterate through list
+line_list = file_object.readlines()
+
+#Closing the file 
+file_object.close()
+
+#wont work for lines 2 and 3 cause they are not data items
+lineString = line_list[2]
 
 #split the string into a list of data items
 lineData = lineString.split()
