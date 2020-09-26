@@ -35,7 +35,6 @@ for lineString in line_list:
 
     #split the string into a list of data items
     lineData = lineString.split()
-    
     #Extract Items in list into variables
     record_id = lineData[0]
     obs_date = lineData[2]
@@ -44,8 +43,9 @@ for lineString in line_list:
     obs_lon = lineData[7]
     
     #Print the location of sara
-    print(f"Record {record_id} Indicates Sara was seen at lat:{obs_lat}, lon:{obs_lon} on {obs_date}")
-    #CHALLENGE to review in class
-    if obs_lc in ("1","2","3"):
+    if obs_lc in ("1", "2", "3"):
+        print(f"Record {record_id} Indicates Sara was seen at lat:{obs_lat}, lon:{obs_lon} on {obs_date}")
+        #CHALLENGE to review in class
         date_dict[record_id] = obs_date
         coord_dict[record_id] = (obs_lat,obs_lon)
+
